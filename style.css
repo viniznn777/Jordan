@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,300&family=Saira&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --backgroundColor: rgb(28, 110, 168);
+    --blueJordan: rgb(0,105,181);
+    --redJordan: rgb(235,23,74);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--backgroundColor);
+}
+
+main {
+    display: flex;
+    background-color: var(--backgroundColor);
+    height: 100vh;
+    width: 100%;
+}
+/* Lado esquerdo Jordan */
+.upSide, .downSide {width: 100%;height: 50%;}
+.upSide {
+    background-color: var(--redJordan);
+    border-bottom: 15px solid white;
+}
+.downSide {background-color: var(--blueJordan);}
+
+.leftAbsolute {
+    position: absolute;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 6%;
+    background-color:var(--backgroundColor);
+    writing-mode: vertical-lr;
+    letter-spacing: 12px;
+    font-family: 'Saira', sans-serif;
+    font-size: 0.89rem;
+    overflow: hidden;
+    border-bottom-right-radius: 15px;
+    color: white;
+    border-right: 2.5px solid white;
+}
+
+.leftAbsolute > .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    overflow: hidden;
+}
+/* Fim lado esquerdo */
+
+/* Começo da SideBar */
+header {
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+nav > ul {display: flex;list-style: none;}
+ul > li {margin-left: 50px;font-size: 1.3rem;}
+li > a {color: rgb(209, 209, 209);text-decoration: none;transition: all 0.4s;}
+li > a:hover {color: var(--redJordan);}
+.ACTIVE {color: var(--redJordan);}
+.menuMobileIcon button {
+    color: white;
+    border: none;
+    background-color: transparent;
+    font-size: 27px;
+    cursor: pointer;
+    display: none;
+}
+/* Mobile Menu */
+.mobileMenu {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    background-color: rgb(10, 81, 133);
+    position: fixed;
+    margin-left: -300vw;
+    animation-duration: 1s;
+}
+@keyframes SideBar {
+    from {
+        margin-left: -300vw;
+    }
+    top {
+        margin-left: 0vw;
+    }
+}
+.mobileMenu ul {display: flex;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+    gap: 50px;
+}
+.mobileMenu button {
+    margin-bottom: 25px;
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+/* Fim mobile menu */
+
+/* Fim da SideBar */
+
+/* Começo do conteúdo principal esquerdo */
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100vh;
+    margin-left: 6%;
+}
+.containerLeft {
+    margin-left: 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: -50px;
+    color: white;
+}
+.title h1 {
+    font-size: 4.9rem;
+    font-family: 'Saria', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.692);
+}
+.subtitle {
+    font-family: 'Saria', sans-serif;
+    font-size: 1.1rem;
+}
+.price {
+    font-family: 'Saria', sans-serif;
+    font-size: 1.5rem;
+    color: rgb(24, 24, 24);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.692);
+}
+.description {
+    font-family: 'Roboto', sans-serif;
+    width: 70%;
+    color: rgb(240, 240, 240);
+    line-height: 30px;
+}.description p::first-letter {font-size: 1.5rem;}
+
+.buttonContainer button {
+    width: 10em;
+    max-width: 512px;
+    height: 3em;
+    font-size: 1.2rem;
+    font-family: 'Saria', sans-serif;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.548);
+    color: white;
+    background-image: linear-gradient(to left, var(--blueJordan), var(--redJordan));
+    background-size: 500% 100%;
+    animation: linearAnimated 5s infinite alternate;
+    transition: transform 0.3s;
+}
+.buttonContainer button:active {
+    transform: scale(0.9);
+}
+
+@keyframes linearAnimated {
+    0% {
+        background-position-x: 0%;
+    }
+    100% {
+        background-position-x: 100%;
+    }
+}
+/* Fim do conteúdo principal esquerdo */
+
+/* Começo do conteúdo principal direito */
+.rightSection {
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rightSection img {
+    transform: rotateZ(-40deg)
+}
+
+/* Fim do conteúdo principal direito */
+::selection {
+    transition: all 1s;
+    background-color: var(--redJordan);
+}
+
+::-webkit-scrollbar {display: none;}
+
+/* MediaQueries */
+
+@media screen and (max-height: 664px){
+    .leftAbsolute {font-size: 0.70rem;}
+}
+@media screen and (max-width: 950px){
+    .containerLeft {margin-top: -20px;}
+}
+@media screen and (max-width: 854px) {
+    .description {width: 100%;}
+}
+@media screen and (max-width: 722px) {
+    main {flex-wrap: wrap;}
+    .leftSection {width: 100vw;}
+    .rightSection {width: 100vw;}
+    .rightSection img {height: 100%;}
+}
+@media screen and (max-width: 596px) {
+    nav ul {display: none;}
+    .menuMobileIcon button {margin-left: 450px;display: block;}
+    .containerLeft {margin-left: 0%;}
+}
+@media screen and (max-width: 482px) {
+    .leftAbsolute {display: none;}
+    header {border-bottom: 2px solid rgb(8, 75, 122);}
+    .menuMobileIcon button {margin-left: 410px;}
+    .rightSection{height: 100%;}
+    .rightSection img {width: 350px;height: 350px;}
+    main {height: 100%;}
+    .leftSection {margin-left: 2%;}
+}
+@media screen and (max-width: 432px) {
+    .menuMobileIcon button {margin-left: 380px;}
+}
+@media screen and (max-width: 410px) {
+    .menuMobileIcon button {margin-left: 330px;}
+}
+@media screen and (max-width: 362px) {
+    .menuMobileIcon button {margin-left: 290px;}
+    .title h1 {font-size: 4.0rem;}
+    img {margin-left: -40px;}
+}
+/* Fim do MediaQueries */
